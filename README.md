@@ -18,6 +18,7 @@ This guide outlines the steps to deploy a Daas application with a PostgreSQL dat
   - Horizontal Pod Autoscaler (`daas-hpa.yaml`)
 
 ## Apply the Secrets and Deployments
+````
 
 ### 1. Create Secrets
 
@@ -27,7 +28,6 @@ Apply the secrets for PostgreSQL and Daas:
 kubectl apply -f postgres-secret.yaml
 kubectl apply -f daas-secret.yaml
 ```
-````
 
 ### 2. Deploy PostgreSQL
 
