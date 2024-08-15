@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: daas-deployment
+  labels:
+    app: daas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: daas
+  template:
+    metadata:
+      labels:
+        app: daas
+    spec:
+      containers:
+        - name: daas
+          image: farmstack/ea-registry-dev-be:latest
+          env:
+            - name: DATABASE_HOST
+              value: postgres # this should match the postgres service name
+            - name: DATABASE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: daas-secret
+                  key: DATABASE_NAME
+            - name: AUTH_DATABASE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: daas-secret
+                  key: AUTH_DATABASE_NAME
+            - name: DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: daas-secret
+                  key: DATABASE_USER
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: daas-secret
+                  key: DATABASE_PASSWORD
+          ports:
+            - containerPort: 8000
+          imagePullPolicy: Always
