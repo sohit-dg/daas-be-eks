@@ -1,4 +1,4 @@
-````markdown
+```markdown
 # Kubernetes Deployment for Daas and PostgreSQL
 
 This guide outlines the steps to deploy a Daas application with a PostgreSQL database on a Kubernetes cluster. The deployment includes setting up secrets, persistent volume claims, deployments, services, and a Horizontal Pod Autoscaler (HPA).
@@ -18,7 +18,7 @@ This guide outlines the steps to deploy a Daas application with a PostgreSQL dat
   - Horizontal Pod Autoscaler (`daas-hpa.yaml`)
 
 ## Apply the Secrets and Deployments
-````
+```
 
 ### 1. Create Secrets
 
@@ -65,4 +65,10 @@ For further customization and scaling options, review and modify the provided `.
 ```
 
 This `README.md` provides a clear and concise guide to setting up and deploying your application. Adjust the content based on your project's specifics as necessary.
+```
+
+Note : First, you need to go inside the cluster, then play with these files.
+
+```bash
+aws eks --region <region-name> update-kubeconfig --name <cluster-name>
 ```
