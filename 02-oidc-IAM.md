@@ -1,5 +1,7 @@
 # commands to configure IAM OIDC provider
 
+<span style="color:red">**Important:** Configuring an IAM OIDC provider in AWS allows you to securely connect and grant access to AWS resources for users or services that are authenticated by an external identity provider (like Google or Okta). This setup is useful for integrating external systems with AWS, managing access for Kubernetes workloads, or securely running CI/CD pipelines without needing to store AWS credentials directly.</span>
+
 ```
 export cluster_name=<CLUSTER-NAME>
 ```

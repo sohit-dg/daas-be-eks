@@ -25,8 +25,8 @@ This guide outlines the steps to deploy a Daas application with a PostgreSQL dat
 Apply the secrets for PostgreSQL and Daas:
 
 ```bash
-kubectl apply -f postgres-secret.yaml
-kubectl apply -f daas-secret.yaml
+kubectl apply -f postgres/postgres-secret.yaml
+kubectl apply -f daas/daas-secret.yaml
 ```
 
 ### 2. Deploy PostgreSQL
@@ -34,9 +34,9 @@ kubectl apply -f daas-secret.yaml
 Set up PostgreSQL by applying the Persistent Volume Claim (PVC), Deployment, and Service:
 
 ```bash
-kubectl apply -f postgres-pvc.yaml
-kubectl apply -f postgres-deployment.yaml
-kubectl apply -f postgres-service.yaml
+kubectl apply -f postgres/postgres-pvc.yaml
+kubectl apply -f postgres/postgres-deployment.yaml
+kubectl apply -f postgres/postgres-service.yaml
 ```
 
 ### 3. Deploy the Daas Backend
@@ -44,8 +44,8 @@ kubectl apply -f postgres-service.yaml
 Deploy the Daas application with the following commands:
 
 ```bash
-kubectl apply -f daas-deployment.yaml
-kubectl apply -f daas-service.yaml
+kubectl apply -f daas/daas-deployment.yaml
+kubectl apply -f daas/daas-service.yaml
 ```
 
 ### 4. Deploy the Horizontal Pod Autoscaler
@@ -53,7 +53,7 @@ kubectl apply -f daas-service.yaml
 Set up the Horizontal Pod Autoscaler (HPA) for the Daas deployment:
 
 ```bash
-kubectl apply -f daas-hpa.yaml
+kubectl apply -f daas/daas-hpa.yaml
 ```
 
 ## Conclusion
@@ -65,10 +65,4 @@ For further customization and scaling options, review and modify the provided `.
 ```
 
 This `README.md` provides a clear and concise guide to setting up and deploying your application. Adjust the content based on your project's specifics as necessary.
-```
-
-Note : First, you need to go inside the cluster, then play with these files.
-
-```bash
-aws eks --region <region-name> update-kubeconfig --name <cluster-name>
 ```

@@ -17,6 +17,11 @@ spec:
       containers:
         - name: daas
           image: farmstack/ea-registry-dev-be:latest
+          resources:
+            requests:
+              cpu: "100m" # Minimal CPU request to satisfy HPA requirements
+            limits:
+              cpu: "500m" # Limit to 500 millicores of CPU
           env:
             - name: DATABASE_HOST
               value: postgres # this should match the postgres service name
@@ -40,6 +45,10 @@ spec:
                 secretKeyRef:
                   name: daas-secret
                   key: DATABASE_PASSWORD
+            - name: REDIS_HOST
+              value: redis # This should match the Redis service name
+            - name: REDIS_PORT
+              value: "6379"
           ports:
             - containerPort: 8000
           imagePullPolicy: Always
