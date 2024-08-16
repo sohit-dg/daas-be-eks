@@ -13,6 +13,8 @@ This guide outlines the steps to deploy a Daas application with a PostgreSQL dat
   - PostgreSQL PVC (`postgres-pvc.yaml`)
   - PostgreSQL Deployment (`postgres-deployment.yaml`)
   - PostgreSQL Service (`postgres-service.yaml`)
+  - Redis Deployment (`redis-deployment.yaml`)
+  - Redis Service (`redis-service.yaml`)
   - Daas Deployment (`daas-deployment.yaml`)
   - Daas Service (`daas-service.yaml`)
   - Horizontal Pod Autoscaler (`daas-hpa.yaml`)
@@ -39,7 +41,16 @@ kubectl apply -f postgres/postgres-deployment.yaml
 kubectl apply -f postgres/postgres-service.yaml
 ```
 
-### 3. Deploy the Daas Backend
+### 3. Deploy Redis
+
+Set up Redis by Deployment, and Service:
+
+```bash
+kubectl apply -f redis/redis-deployment.yaml
+kubectl apply -f redis/redis-service.yaml
+```
+
+### 4. Deploy the Daas Backend
 
 Deploy the Daas application with the following commands:
 
@@ -48,7 +59,7 @@ kubectl apply -f daas/daas-deployment.yaml
 kubectl apply -f daas/daas-service.yaml
 ```
 
-### 4. Deploy the Horizontal Pod Autoscaler
+### 5. Deploy the Horizontal Pod Autoscaler
 
 Set up the Horizontal Pod Autoscaler (HPA) for the Daas deployment:
 
