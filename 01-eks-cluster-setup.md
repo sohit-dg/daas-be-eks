@@ -3,7 +3,7 @@
 
 This guide provides the steps to create an Amazon EKS (Elastic Kubernetes Service) cluster using `eksctl` and AWS CLI, along with an example of configuring the cluster using a YAML file.
 
-<span style="color:red">**Important:** I have created this repository based on my requirements, but Kubernetes (K8s) doesn't care about which application it is. You just need to understand and follow the structure and requirements as needed; the rest will work.</span>
+**Important:** I have created this repository based on my requirements, but Kubernetes (K8s) doesn't care about which application it is. You just need to understand and follow the structure and requirements as needed; the rest will work.
 
 ## Prerequisites
 
